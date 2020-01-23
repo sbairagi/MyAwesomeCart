@@ -14,43 +14,43 @@
     </div>
     <div class="col my-4">
         <h2>step 2 - Enter Address & Other Details </h2>
-            <form method="post" action="/shop/checkout">{% csrf_token %}
+            <form method="post" action="/shop/checkout/">{% csrf_token %}
                 <input type="hidden" name="itemsJson" id="itemsJson">
               <div class="form-row">
                 <div class="form-group col-md-6">
-                  <label for="inputname">Name</label>
-                  <input type="name" class="form-control" id="inputname" placeholder="Name">
+                  <label for="name">Name</label>
+                  <input type="text" class="form-control" id="name" name="name" placeholder="Name">
                 </div>
                 <div class="form-group col-md-6">
-                  <label for="inputEmail4">Email</label>
-                  <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                  <label for="email">Email</label>
+                  <input type="email" class="form-control" id="email" name="email" placeholder="Email">
                 </div>
               </div>
               <div class="form-group">
-                <label for="inputAddress">Address</label>
-                <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                <label for="address1">Address</label>
+                <input type="text" class="form-control" id="address1" name="address1" placeholder="1234 Main St">
               </div>
               <div class="form-group">
-                <label for="inputAddress2">Address 2</label>
-                <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+                <label for="address2">Address Line 2</label>
+                <input type="text" class="form-control" id="address2" name="address2" placeholder="Apartment, studio, or floor">
               </div>
               <div class="form-row">
                 <div class="form-group col-md-6">
-                  <label for="inputCity">City</label>
-                  <input type="text" class="form-control" id="inputCity">
+                  <label for="city">City</label>
+                  <input type="text" class="form-control" name="city" id="city">
                 </div>
                 <div class="form-group col-md-4">
-                  <label for="inputState">State</label>
-                  <input type="text" class="form-control" id="inputState" placeholder="Enter State">
+                  <label for="State">State</label>
+                  <input type="text" class="form-control" name="state" id="State" placeholder="Enter State">
                 </div>
                 <div class="form-group col-md-2">
-                  <label for="inputZip">Zip</label>
-                  <input type="text" class="form-control" id="inputZip">
+                  <label for="zip">Zip</label>
+                  <input type="text" class="form-control" name="zip_code" id="zip">
                 </div>
               </div>
               <div class="form-group Phone">
-                  <label for="inputPhone">Phone Number </label>
-                  <input type="tel" class="form-control" id="inputPhone">
+                  <label for="phone">Phone Number </label>
+                  <input type="tel" class="form-control" id="phone" name="phone">
                 </div>
               <button type="submit" class="btn btn-primary">Place Order</button>
             </form>
@@ -91,6 +91,13 @@
         }
     }
     document.getElementById('cart').innerHTML = sum ;
+    $('#itemsJson').val(JSON.stringify(cart));
+    {% if thank %}
+    alert('thanks for the ordering eith us. your order id is {{id}}. use it to track your order using order tracker');
+    localStorage.clear();
+    document.location = "/shop";
+    {% endif %}
+
 </script>
 
 {% endblock %}
