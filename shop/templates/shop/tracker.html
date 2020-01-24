@@ -7,11 +7,10 @@
     <div class="col my-4">
         <h2>Track your product with your Id and Mail</h2>
         <form method="post" action="/shop/checkout/">{% csrf_token %}
-                <input type="hidden" name="itemsJson" id="itemsJson">
               <div class="form-row">
                 <div class="form-group col-md-6">
-                  <label for="name">Name</label>
-                  <input type="text" class="form-control" id="name" name="name" placeholder="Name">
+                  <label for="order_id">Name</label>
+                  <input type="text" class="form-control" id="order_id" name="order_id" placeholder="Id">
                 </div>
                 <div class="form-group col-md-6">
                   <label for="email">Email</label>
