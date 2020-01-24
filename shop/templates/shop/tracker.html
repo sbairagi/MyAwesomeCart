@@ -1,4 +1,43 @@
 {% extends 'shop/basic.html' %}
 
-{% block title%} Title of Tracker{% endblock %}
-{% block body %} This is Tracker {% endblock %}
+{% block title%}My Awesome Cart Tracker{% endblock %}
+{% block body %}
+
+<div class="container">
+    <div class="col my-4">
+        <h2>Track your product with your Id and Mail</h2>
+        <form method="post" action="/shop/checkout/">{% csrf_token %}
+                <input type="hidden" name="itemsJson" id="itemsJson">
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="name">Name</label>
+                  <input type="text" class="form-control" id="name" name="name" placeholder="Name">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="email">Email</label>
+                  <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                </div>
+                  <button type="submit" class="btn btn-primary">Place Order</button>
+
+              </div>
+        </form>
+
+    </div>
+    <div class="col my-4">
+        <h2>Product Details </h2>
+        <div class="my-4">
+            <ul class="list-group" id="items">
+
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block js %}
+
+<script>
+
+</script>
+
+{% endblock %}
