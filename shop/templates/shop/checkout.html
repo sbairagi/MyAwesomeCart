@@ -93,7 +93,7 @@
     document.getElementById('cart').innerHTML = sum ;
     $('#itemsJson').val(JSON.stringify(cart));
     {% if thank %}
-    alert('thanks for the ordering eith us. your order id is {{id}}. use it to track your order using order tracker');
+    alert('thanks for the ordering With us. your order id is {{id}}. use it to track your order using order tracker');
     localStorage.clear();
     document.location = "/shop";
     {% endif %}
