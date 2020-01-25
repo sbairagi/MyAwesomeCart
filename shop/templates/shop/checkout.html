@@ -9,7 +9,13 @@
         <div class="my-4">
             <ul class="list-group" id="items">
 
+
             </ul>
+          <nav aria-="breadcrumb">
+              <ol class="breadcrumb mt-3">
+              <li class="breadcrumb-item active" aria-current="page">Your Cart Total Is <b>Rs.<span id="totalprice"></span></b>. Enter Your Details Below & Place Your Order. Thanks For Using My Awesome Cart</li>
+              </ol>
+          </nav>
         </div>
     </div>
     <div class="col my-4">
@@ -71,6 +77,8 @@
     }
     console.log(cart);
     var sum = 0;
+    var totalprice = 0;
+
     if ($.isEmptyObject(cart)){
     // if object is empty
     mystr = `<p>your cart is empty  Please add some items to your cart before checking out</p>`
@@ -82,15 +90,19 @@
 
             let name = cart[item][1];
             let qty = cart[item][0];
+            let itemprice = cart[item][2];
             sum = sum + qty;
+            totalprice = totalprice + qty * itemprice
             mystr = `<li class="list-group-item d-flex justify-content-between align-items-center">
                     ${name}
                     <span class="badge badge-primary badge-pill">${qty}</span>
                   </li>`
             $('#items').append(mystr);
         }
+
     }
     document.getElementById('cart').innerHTML = sum ;
+    document.getElementById('totalprice').innerHTML = totalprice ;
     $('#itemsJson').val(JSON.stringify(cart));
     {% if thank %}
     alert('thanks for the ordering With us. your order id is {{id}}. use it to track your order using order tracker');
