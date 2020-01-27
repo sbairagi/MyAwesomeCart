@@ -1,7 +1,7 @@
 {% extends 'blog/basic.html' %}
 {% block body %}
   <div class="container">
-    <div class="row mb-2 my-3">
+    <div class="row my-3">
       {% for item in myposts %}
       <div class="col-md-6">
         <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
@@ -21,7 +21,7 @@
       </div>
 
     {% if forloop.counter|divisibleby:2 %}
-        </div><div class="row mb-2 my-3">
+        </div><div class="row my-3">
       {% endif %}
 
     {% endfor %}
