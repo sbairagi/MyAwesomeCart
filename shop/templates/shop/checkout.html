@@ -22,6 +22,7 @@
         <h2>step 2 - Enter Address & Other Details </h2>
             <form method="post" action="/shop/checkout/">{% csrf_token %}
                 <input type="hidden" name="itemsJson" id="itemsJson">
+                <input type="hidden" name="amount" id="amount">
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="name">Name</label>
@@ -109,6 +110,8 @@
     localStorage.clear();
     document.location = "/shop";
     {% endif %}
+
+$('#amount').val($('#totalprice').html());
 
 </script>
 
