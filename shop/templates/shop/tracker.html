@@ -61,10 +61,11 @@
     })
 
     .done(function(data){
+    $('#citems').empty();
         console.log(data)
         data = JSON.parse(data);
-        updates = data[0];
-        if (updates.length>0 & updates!={}){
+        if (data['status'] == 'success'){
+        updates = data['updates'];
         for (i=0; i<updates.length; i++) {
         let text = updates[i]['text'];
         let time = updates[i]['time'];
@@ -74,18 +75,8 @@
                   </li>`
             $('#items').append(mystr);
 
-        }
-    }
-    else{
-
-        mystr = `<li class="list-group-item d-flex justify-content-between align-items-center">
-                    Sorry, we are not able to fetch this order Id and Email. Make sure to type correct of your order Id and Email
-                  </li>`
-        $('#items').append(mystr);
-    }
-
-// fill in the order details
-cart = JSON.parse(data[1]);
+            // fill in the order details
+cart = JSON.parse(data['itemJson']);
 for(var item in cart){
 
             let name = cart[item][1];
@@ -96,6 +87,20 @@ for(var item in cart){
                   </li>`
             $('#citems').append(mystr);
         }
+
+        }
+
+    }
+    else{
+
+        mystr = `<li class="list-group-item d-flex justify-content-between align-items-center">
+                    Sorry, we are not able to fetch this order Id and Email. Make sure to type correct of your order Id and Email
+                  </li>`
+        $('#items').append(mystr);
+        $('#citems').append(mystr);
+    }
+
+
 
     });
 
