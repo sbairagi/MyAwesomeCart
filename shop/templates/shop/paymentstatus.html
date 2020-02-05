@@ -2,13 +2,14 @@
 
 {% block title%}My Awesome Cart Tracker{% endblock %}
 {% block body %}
-<div class="container">
-    <div class="col-my-4">
-        <h2>Payment Status Regarding Your Order ID {{response.ORDERID}}</h2>
+<div class="container my-4">
+    <div class="col-my-4 my-4">
+        <h2 class="my-5">Payment Status Regarding Your Order ID <SPAN CLASS="NUMBER">{{response.ORDERID}}</SPAN></h2>
+        <h2 class="my-5">You Can Track Our Product With The Help of Order Id & Email</h2>
         {% if response.RESPCODE == '01'%}
-        ORDER SUCCESS
+        <p class="my-5"> YOUR PAYMENT IS SUCCESSFULLY COMPLETED </p>
         {% else %}
-        ORDER FAILURE
+        <p class="my-5"> YOUR PAYMENT IS NOT COMPLETED</p>
         {% endif %}
     </div>
 </div>
