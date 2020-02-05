@@ -75,10 +75,10 @@
                   </li>`
             $('#items').append(mystr);
 
-            // fill in the order details
-cart = JSON.parse(data['itemJson']);
-for(var item in cart){
-
+        }
+        // fill in the order details
+        cart = JSON.parse(data['itemJson']);
+        for(var item in cart){
             let name = cart[item][1];
             let qty = cart[item][0];
             mystr = `<li class="list-group-item d-flex justify-content-between align-items-center">
@@ -87,9 +87,6 @@ for(var item in cart){
                   </li>`
             $('#citems').append(mystr);
         }
-
-        }
-
     }
     else{
 
