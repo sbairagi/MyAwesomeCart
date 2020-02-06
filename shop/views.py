@@ -117,7 +117,7 @@ def checkout(request):
         update = Orderupdate(order_id=order.order_id,update_desc="the order has been placed")
         update.save()
         thank = True
-        id = order.order_id
+        # id = order.order_id
         # return render(request,'shop/checkout.html', {'thank':thank,'id': id})
         # Request Paytm To Transfer The Amount To Your Account After Payment By User.
         params_dict = {
